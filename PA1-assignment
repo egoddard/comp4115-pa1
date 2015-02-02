@@ -49,9 +49,32 @@ might need to look up the exact commands to make them happen.
 called 'test'. Switch to this database with the 'use' command. What
 tables does it have?
 
+MariaDB [test]> show tables from test;
+Empty set (0.00 sec)
+
 2. Now switch to the built-in 'mysql' database. What are the columns
 in the 'func' table? List all pertinent info. How many records exist
 in the table?  What do you suppose this table is used to store?
+
+MariaDB [mysql]> desc func;
++-------+------------------------------+------+-----+---------+-------+
+| Field | Type                         | Null | Key | Default | Extra |
++-------+------------------------------+------+-----+---------+-------+
+| name  | char(64)                     | NO   | PRI |         |       |
+| ret   | tinyint(1)                   | NO   |     | 0       |       |
+| dl    | char(128)                    | NO   |     |         |       |
+| type  | enum('function','aggregate') | NO   |     | NULL    |       |
++-------+------------------------------+------+-----+---------+-------+
+
+MariaDB [mysql]> select count(*) from func;
++----------+
+| count(*) |
++----------+
+|        0 |
++----------+
+1 row in set (0.00 sec)
+
+The func table stores user-created functions.
 
 3. Create a new database called "us_states". In this database, add a
 table called "states". Add 5 columns to the table: state name (a
@@ -61,10 +84,87 @@ ENUM. The ID field should be a primary key that auto-increments.
 
 Using the insert command, add 10 states to your table one at a time
 (using real or completely made up population data). 
+MariaDB [states]> insert into states (state_name, state_abbr, population, craft_breweries) VALUES ('Washington', 'WA', 6724540, 201);
+Query OK, 1 row affected (0.00 sec)
+
+MariaDB [states]> insert into states (state_name, state_abbr, population, craft_breweries) VALUES ('Delaware', 'DE', 897934, 10);
+Query OK, 1 row affected (0.00 sec)
+
+MariaDB [states]> insert into states (state_name, state_abbr, population, craft_breweries) VALUES ('District of Columbia', 'DC', 601723, 9)
+    -> ;
+Query OK, 1 row affected (0.00 sec)
+
+MariaDB [states]> insert into states (state_name, state_abbr, population, craft_breweries) VALUES ('Wisconsin', 'WI', 5686986, 90);
+Query OK, 1 row affected (0.00 sec)
+
+MariaDB [states]> insert into states (state_name, state_abbr, population, craft_breweries) VALUES ('West Virginia', 'WV', 1852994, 7);
+Query OK, 1 row affected (0.01 sec)
+
+MariaDB [states]> insert into states (state_name, state_abbr, population, craft_breweries) VALUES ('Hawaii', 'HI', 1360301, 8);
+Query OK, 1 row affected (0.00 sec)
+
+MariaDB [states]> insert into states (state_name, state_abbr, population, craft_breweries) VALUES ('Florida', 'FL', 18801310, 66);
+Query OK, 1 row affected (0.01 sec)
+
+MariaDB [states]> insert into states (state_name, state_abbr, population, craft_breweries) VALUES ('Wyoming', 'WY', 563626, 18);
+Query OK, 1 row affected (0.01 sec)
+
+MariaDB [states]> insert into states (state_name, state_abbr, population, craft_breweries) VALUES ('New Hampshire', 'NH', 1316470, 22);
+Query OK, 1 row affected (0.00 sec)
+
+MariaDB [states]> insert into states (state_name, state_abbr, population, craft_breweries) VALUES ('New Jersey', 'NJ', 8791894, 26);
+Query OK, 1 row affected (0.00 sec)
+
 Run queries to:
 * List all the columns in your table,
+MariaDB [states]> select column_name from information_schema.columns where table_name = 'states';
++-----------------+
+| column_name     |
++-----------------+
+| id              |
+| state_name      |
+| state_abbr      |
+| population      |
+| craft_breweries |
++-----------------+
+
 * output the states in descending order of population, and
+MariaDB [states]> select state_name, population from states order by population desc;
++----------------------+------------+
+| state_name           | population |
++----------------------+------------+
+| Florida              |   18801310 |
+| New Jersey           |    8791894 |
+| Washington           |    6724540 |
+| Tennessee            |    6346105 |
+| Wisconsin            |    5686986 |
+| West Virginia        |    1852994 |
+| Hawaii               |    1360301 |
+| New Hampshire        |    1316470 |
+| Delaware             |     897934 |
+| District of Columbia |     601723 |
+| Wyoming              |     563626 |
++----------------------+------------+
+11 rows in set (0.00 sec)
+
 * some other query of your choice that tells me something interesting about your data.
+MariaDB [states]> select state_name as state, craft_breweries / (population * 0.65 / 100000)  as breweries_per_capita from states order by breweries_per_capita desc;
++----------------------+----------------------+
+| state                | breweries_per_capita |
++----------------------+----------------------+
+| Wyoming              |               4.9132 |
+| Washington           |               4.5985 |
+| New Hampshire        |               2.5710 |
+| Wisconsin            |               2.4347 |
+| District of Columbia |               2.3011 |
+| Delaware             |               1.7133 |
+| Hawaii               |               0.9048 |
+| Tennessee            |               0.8485 |
+| West Virginia        |               0.5812 |
+| Florida              |               0.5401 |
+| New Jersey           |               0.4550 |
++----------------------+----------------------+
+11 rows in set (0.00 sec)
 
 Copy/paste the result of running these queries as part of your homework submission.
 
