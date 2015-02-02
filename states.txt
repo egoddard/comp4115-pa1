@@ -1,0 +1,51 @@
+Washington,WA,6724540,201
+Delaware,DE,897934,10
+District of Columbia,DC,601723,9
+Wisconsin,WI,5686986,90
+West Virginia,WV,1852994,7
+Hawaii,HI,1360301,8
+Florida,FL,18801310,66
+Wyoming,WY,563626,18
+New Hampshire,NH,1316470,22
+New Jersey,NJ,8791894,26
+Tennessee,TN,6346105,35
+New Mexico,NM,2059179,31
+Texas,TX,25145561,96
+Louisiana,LA,4533372,11
+North Carolina,NC,9535483,91
+North Dakota,ND,672591,6
+Nebraska,NE,1826341,22
+New York,NY,19378102,165
+Pennsylvania,PA,12702379,108
+Rhode Island,RI,1052567,8
+Nevada,NV,2700551,22
+Virginia,VA,8001024,61
+Colorado,CO,5029196,175
+Alaska,AK,710231,22
+Alabama,AL,4779736,13
+Arkansas,AR,2915918,13
+Vermont,VT,625741,29
+Illinois,IL,12830632,83
+Georgia,GA,9687653,28
+Indiana,IN,6483802,63
+Iowa,IA,3046355,40
+Oklahoma,OK,3751351,13
+Arizona,AZ,6392017,47
+California,CA,37253956,381
+Idaho,ID,1567582,34
+Connecticut,CT,3574097,23
+Maine,ME,1328361,47
+Maryland,MD,5773552,34
+Massachusetts,MA,6547629,57
+Ohio,OH,11536504,76
+Utah,UT,2763885,16
+Missouri,MO,5988927,49
+Minnesota,MN,5303925,52
+Michigan,MI,9883640,131
+Kansas,KS,2853118,20
+Montana,MT,989415,39
+Mississippi,MS,2967297,4
+South Carolina,SC,4625364,20
+Kentucky,KY,4339367,15
+Oregon,OR,3831074,181
+South Dakota,SD,814180,10
