@@ -52,14 +52,13 @@ displays them in descending order.
 
 ## Query: 
 ```sql
-select products.productName, b.numberSold from products,
-    (select productCode, sum(quantityOrdered) as numberSold from orderdetails group by productCode) as b where 
-        products.productCode = b.productCode
-            order by b.numberSold desc limit 5;
+select a.productName, sum(b.quantityOrdered) as numberSold from products as a 
+    join orderdetails as b on a.productCode = b.productCode 
+        group by b.productCode 
+            order by numberSold desc limit 5;
 ```
 This query finds the 5 most popular products and the number of each that has been
-sold by using a subquery and a join between products and the results of the 
-subquery.
+sold by using a join the JOIN...ON syntax between the products and orderdetails tables.
 
 ## Query:
 ```sql

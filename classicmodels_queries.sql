@@ -25,10 +25,10 @@ select productLine, count(productName) as numProducts from products
         order by numProducts desc;
 
 /* Find the most popular products and the number of each that has been ordered */
-select products.productName, b.numberSold from products,
-    (select productCode, sum(quantityOrdered) as numberSold from orderdetails group by productCode) as b where 
-        products.productCode = b.productCode
-            order by b.numberSold desc limit 5;
+select a.productName, sum(b.quantityOrdered) as numberSold from products as a 
+    join orderdetails as b on a.productCode = b.productCode 
+        group by b.productCode 
+            order by numberSold desc limit 5;
 
 /* Find the most popular customers and the number of orders they have placed */
 select customers.customerName, count(orders.orderNumber) as orders from customers, orders
