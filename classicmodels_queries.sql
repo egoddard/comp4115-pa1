@@ -36,3 +36,10 @@ select customers.customerName, count(orders.orderNumber) as orders from customer
         group by orders.customerNumber
             order by orders desc limit 5;
 
+/* Find the employees with the most sales */
+select concat(firstName,' ', lastName) as employee, round(sum(quantityOrdered * priceEach),2) as salesAmount from orderdetails 
+    join orders on orders.orderNumber = orderdetails.orderNumber
+        join customers on customers.customerNumber = orders.customerNumber 
+            join employees on employees.employeeNumber = customers.salesRepEmployeeNumber 
+                group by salesRepEmployeeNumber 
+                    order by salesAmount desc limit 5;

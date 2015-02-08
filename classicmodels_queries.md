@@ -70,4 +70,13 @@ sold by using a join the JOIN...ON syntax between the products and orderdetails 
 This query performs a join on the customer and orders tables and displays the
 5 customers with the most orders in descending order.
 
-
+## Query:
+```sql
+select concat(firstName,' ', lastName) as employee, round(sum(quantityOrdered * priceEach),2) as salesAmount from orderdetails 
+    join orders on orders.orderNumber = orderdetails.orderNumber
+        join customers on customers.customerNumber = orders.customerNumber 
+            join employees on employees.employeeNumber = customers.salesRepEmployeeNumber 
+                group by salesRepEmployeeNumber 
+                    order by salesAmount desc limit 5;
+```
+This query uses a series of joins to find the employees that have earned the most in sales.
