@@ -16,6 +16,14 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
+-- Current Database: `us_states`
+--
+
+CREATE DATABASE /*!32312 IF NOT EXISTS*/ `us_states` /*!40100 DEFAULT CHARACTER SET latin1 */;
+
+USE `us_states`;
+
+--
 -- Table structure for table `states`
 --
 
@@ -51,4 +59,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2015-02-01 21:22:49
+-- Dump completed on 2015-02-09 13:31:46
