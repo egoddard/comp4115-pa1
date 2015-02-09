@@ -166,7 +166,9 @@ MariaDB [states]> select state_name as state, craft_breweries / (population * 0.
 +----------------------+----------------------+
 11 rows in set (0.00 sec)
 
-Copy/paste the result of running these queries as part of your homework submission.
+The population * 0.65 / 100000 portion of the query is to approximate the number
+of drinking age adults (about 65% of the total population) and normalize the data
+by showing the number of breweries per 100,000 drinking age adults.
 
 
 PART TWO. 35 points.
